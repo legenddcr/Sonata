@@ -34,10 +34,10 @@ default:
 
 	$(C_COMPILER) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o ./$(TARGET1)
 	./$(TARGET1)
-	gcov -b -c ./src/example.c -o 'example'
+	gcov -a -b -c ./src/example.c -o 'example'
 #	lcov --directory . --zerocounters
-	lcov -d . -t 'example' -o example.info -b . -c
-	genhtml -o decision_cov_result ./example.info --title "Simple test" --show-details --legend
+	lcov -c -d . -t 'example' -o example.info -b .
+	genhtml -o decision_cov_result ./example.info --frames --title "Simple test" --show-details --legend
 
 #	$(C_COMPILER) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES2) -o ./$(TARGET2)
 #	./$(TARGET2)
